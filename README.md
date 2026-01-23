@@ -29,13 +29,13 @@ JDBC
 IntelliJ IDEA
 
 Project Structure
-src/
-├── model/        // Entity classes (Band, Stage, CrewMember, Slot)
-├── repository/   // JDBC database access
-├── service/      // Business logic and validation
-├── exception/    // Custom exceptions
-├── utils/        // Database connection
-└── Main.java     // Program entry point
+src   
+├── model       
+├── repository    
+├── service   
+├── exception   
+├── utils       
+└── Main.java    
 Class Overview
 BaseEntity (abstract)
 
