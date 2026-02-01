@@ -1,12 +1,10 @@
 package model;
 
 public class Stage extends BaseEntity {
-    private String stageName;
     private int capacity;
 
-    public Stage(int id, String stageName, int capacity){
-        this.id = id;
-        this.stageName = stageName;
+    public Stage(int id, String name, int capacity){
+        super(id, name);
         this.capacity = capacity;
     }
 
@@ -17,6 +15,6 @@ public class Stage extends BaseEntity {
 
     @Override
     public String getSummary() {
-        return stageName + " | capacity = " + capacity;
+        return getName() + " | capacity = " + capacity;
     }
 }

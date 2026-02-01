@@ -1,28 +1,29 @@
 package model;
 
-public class Band extends BaseEntity {
-    private String name;
+import utils.Printable;
+
+public class Band extends BaseEntity implements Printable {
     private String country;
     private String genre;
 
     public Band(int id, String name, String country, String genre){
-        this.id = id;
-        this.name = name;
+        super(id, name);
         this.country = country;
         this.genre = genre;
     }
 
     @Override
     public boolean isValid() {
-        return name != null && !name.isEmpty();
+        return getName() != null && !getName().isEmpty();
     }
 
     @Override
     public String getSummary() {
-        return name + " (" + genre + ") ";
+        return display() + " (" + genre + ") ";
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public String print() {
+        return getSummary();
     }
 }

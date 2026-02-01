@@ -3,10 +3,17 @@ package service;
 import exceptions.InvalidSlotException;
 import exceptions.TimeCollisionException;
 import model.Slot;
+import model.Band;
 import repository.SlotRepository;
+import java.util.List;
+import java.util.ArrayList;
 
 public class FestivalService {
-    private SlotRepository slotRepo = new SlotRepository();
+    private final SlotRepository repo;
+
+    public FestivalService(SlotRepository slotRepo) {
+        this.repo = slotRepo;
+    }
 
     public void scheduleSlot(Slot slot)
             throws Exception {
@@ -14,7 +21,7 @@ public class FestivalService {
         if (!slot.getBand().isValid())
             throw new InvalidSlotException("Invalid band");
 
-        if (slotRepo.hasTimeCollision(
+        if (repo.hasTimeCollision(
                 slot.getStage().getId(),
                 slot.getStart(),
                 slot.getEnd())) {
@@ -30,5 +37,9 @@ public class FestivalService {
         if (capacity >= 5000 && slotCount > 3)
             return "HIGH RISK";
         return "NORMAL";
+    }
+
+    public List<Band> getAllBands() {
+        return repo.findAllBands(); // предполагается, что такой метод есть в репозитории
     }
 }
