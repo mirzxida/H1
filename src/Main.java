@@ -32,15 +32,13 @@ public class Main {
 
 
         try {
-            // Получаем все бэнды, которые есть в базе через сервис
-            List<Band> bands = service.getAllBands(); // метод, который ты должен реализовать
+            List<Band> bands = service.getAllBands();
 
             if (bands.isEmpty()) {
                 System.out.println("No bands found in database!");
                 return;
             }
 
-            // Сортируем бэнды по имени
             bands = SortingUtils.sort(
                     bands,
                     (b1, b2) -> b1.getName().compareTo(b2.getName())

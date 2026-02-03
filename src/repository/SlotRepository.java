@@ -141,8 +141,6 @@ public class SlotRepository implements CrudRepository<Slot> {
     }
 
     public List<Band> findAllBands() {
-        // Тут ты вытаскиваешь бэндов из базы
-        // Пример, если используешь JDBC:
         List<Band> bands = new ArrayList<>();
         String sql = "SELECT * FROM bands";
         try (Connection conn = DatabaseConnection.getConnection();
